@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Carluxo Generator</title>
+  <style>
+    /* General styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --background-1: #e6ecf0;
+      --background-2: #fff;
+      --background-3: #e6ecf0;
+      --font-1: #14171a;
+      --font-2: #657786;
+      --font-3: #1da1f2;
+    }
+
+    html {
+      background-color: var(--background-1);
+      font-size: 10px;
+      font-family: 'Helvetica Neue';
+      color: var(--font-1);
+    }
+
+    .heading {
+      text-align: center;
+      margin: 3rem 0;
+      font-size: 3rem;
+    }
+
+    .tweet {
+      background-color: var(--background-2);
+      padding: 1.8rem 0.9rem;
+      max-width: 60rem;
+      margin: 0 auto;
+      display: grid;
+      grid-gap: 1.4rem;
+    }
+
+    /* Tweet header */
+    .tweet__header {
+      display: grid;
+      grid-template-columns: 4.6rem 1fr auto;
+      grid-gap: 1.2rem;
+      align-items: center;
+    }
+
+    .tweet__header__photo {
+      border-radius: 50%;
+    }
+
+    .tweet__header__link {
+      color: inherit;
+      text-decoration: none;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .tweet__header__link:hover > .tweet__header__link__nick{
+      text-decoration: underline;
+    }
+
+    .tweet__header__link__username {
+      color: var(--font-2);
+    }
+
+    .tweet__header__link__nick {
+      display: grid;
+      align-items: center;
+      grid-template-columns: auto 1fr;
+      grid-gap: 0.3rem;
+    }
+
+    .tweet__header__link__verified {
+      width: 1.7rem;
+      height: 1.7rem;
+      fill: var(--font-3);
+    }
+
+    .tweet__header__arrow {
+      fill: var(--font-2);
+      width: 1.5rem;
+      height: 1.5rem;
+      align-self: start;
+    }
+
+    /* Tweet body */
+    .tweet__body {
+      font-size: 2.3rem;
+    }
+
+    .tweet__hour {
+      font-size: 1.5rem;
+      color: var(--font-2);
+      border-bottom: 1px solid var(--background-3);
+      padding-bottom: 1.5rem;
+    }
+
+    /* Generate button */
+    .tweet__generate {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="heading">Carluxo Generator</h1>
+
+  <div class="tweet">
+    <div class="tweet__header">
+      <!-- Profile Photo -->
+      <img
+        class="tweet__header__photo"
+        src="https://pbs.twimg.com/profile_images/1034436712154517504/7c6QwrWY_normal.jpg"
+        alt="Carlos Bolsonaro"
+      />
+
+      <!-- Nick and username -->
+      <div>
+        <a class="tweet__header__link" href="https://mobile.twitter.com/CarlosBolsonaro" target="_blank">
+          <p class="tweet__header__link__nick">
+            <strong>Carlos Bolsonaro</strong>
+
+            <svg viewBox="0 0 24 24" aria-label="Verified account" class="tweet__header__link__verified">
+              <g>
+                <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25a3.606 3.606 0 0 0-1.336-.25c-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5a.749.749 0 0 1-1.041.208l-.115-.094-2.415-2.415a.749.749 0 1 1 1.06-1.06l1.77 1.767 3.825-5.74a.75.75 0 0 1 1.25.833z"></path>
+              </g>
+            </svg>
+          </p>
+
+          <p class="tweet__header__link__username">@CarlosBolsonaro</p>
+        </a>
+      </div>
+
+      <svg viewBox="0 0 24 24" class="tweet__header__arrow"><g><path d="M20.207 8.147a1 1 0 0 0-1.414 0L12 14.94 5.207 8.147a1 1 0 0 0-1.414 1.414l7.5 7.5a.996.996 0 0 0 1.414.001l7.5-7.5a1 1 0 0 0 0-1.413z"></path></g></svg>
+    </div>
+
+    <!-- Tweet body -->
+    <div class="tweet__body"></div>
+    <div class="tweet__hour">8:35 PM · Mar 6, 2019 · Twitter for iPhone</div>
+
+    <!-- Generate button -->
+    <button class="tweet__generate" id="generate-words">Clique para adicionar palavras sábias 💩</button>
+
+    <!-- Fart sounds -->
+    <audio src="farts/fart-1.mp3"></audio>
+    <audio src="farts/fart-2.mp3"></audio>
+    <audio src="farts/fart-3.mp3"></audio>
+    <audio src="farts/fart-4.mp3"></audio>
+    <audio src="farts/fart-5.mp3"></audio>
+    <audio src="farts/fart-6.mp3"></audio>
+  </div>
+
+  <script>
+    const farts = Array.from(document.querySelectorAll('audio'))
+
+    function playFart() {
+      const randomFart = farts[Math.floor(Math.random() * farts.length)];
+      randomFart.currentTime = 0;
+      randomFart.play();
+    }
+
+    const words = [
+      'O estarrecedor não é o fato do isentão sempre conseguir enganar o inocente, afinal o urubu sempre existiu.',
+      'O fato curioso é gente inteligente achar que um bicho desses não joga do outro lado.',
+      'Esse país está de cabeça pra baixo mesmo.',
+      'O RJ e outros estados agradecem.',
+      'Isso trará desenvolvimento, emprego, economia, interligações com outros transportes e muito mais.',
+      'A esquerda diz defender uma classe mas tenta te massacrar dizendo que você faz parte da mesma classe que ela diz defender.'
+    ];
+
+    const generateButton = document.querySelector('#generate-words');
+    const container = document.querySelector('.tweet__body');
+
+    generateButton.addEventListener('click', function() {
+      if (words.length) {
+        const randomWords = words[Math.floor(Math.random() * words.length)];
+        container.appendChild(document.createTextNode(randomWords + " "));
+        words.splice(words.indexOf(randomWords), 1);
+      }
+
+      playFart();
+    });
+  </script>
+</body>
+</html>
