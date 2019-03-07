@@ -149,16 +149,18 @@
     <button class="tweet__generate" id="generate-words">Clique para adicionar palavras sábias 💩</button>
 
     <!-- Fart sounds -->
-    <audio src="farts/fart-1.mp3"></audio>
-    <audio src="farts/fart-2.mp3"></audio>
-    <audio src="farts/fart-3.mp3"></audio>
-    <audio src="farts/fart-4.mp3"></audio>
-    <audio src="farts/fart-5.mp3"></audio>
-    <audio src="farts/fart-6.mp3"></audio>
+    <audio class="fart-sound" src="farts/fart-1.mp3"></audio>
+    <audio class="fart-sound" src="farts/fart-2.mp3"></audio>
+    <audio class="fart-sound" src="farts/fart-3.mp3"></audio>
+    <audio class="fart-sound" src="farts/fart-4.mp3"></audio>
+    <audio class="fart-sound" src="farts/fart-5.mp3"></audio>
+    <audio class="fart-sound" src="farts/fart-6.mp3"></audio>
+    <audio class="final-fart" src="farts/final-fart.mp3"></audio>
   </div>
 
   <script>
-    const farts = Array.from(document.querySelectorAll('audio'))
+    const farts = Array.from(document.querySelectorAll('audio.fart-sound'))
+    const finalFart = document.querySelector('.final-fart');
 
     function playFart() {
       const randomFart = farts[Math.floor(Math.random() * farts.length)];
@@ -213,9 +215,11 @@
         const randomWords = words[Math.floor(Math.random() * words.length)];
         container.appendChild(document.createTextNode(randomWords + " "));
         words.splice(words.indexOf(randomWords), 1);
+        playFart();
       }
-
-      playFart();
+      else {
+        finalFart.play();
+      }
     });
   </script>
 </body>
